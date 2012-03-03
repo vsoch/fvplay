@@ -42,12 +42,12 @@ OUTPUT: fv.features_vectorsraw data
 
 
 % fvplot takes as input the output of fvplay (an n x m matrix with n %% objects / subjects (rows) and m features (columns) and plots a mean
-% subtracted histogram and heat map.
-%
-% USAGE: fvplot(fvobject,type)
-% INPUT: transform: transformed n x m data matrix, with n objects and m features
-%         fv: fv data object
-% OUTPUT: graphical... plots!
-%
+ subtracted histogram and heat map.
+
+ USAGE: fvplot(fvobject,type)
+ INPUT: transform: transformed n x m data matrix, with n objects and m features
+         fv: fv data object
+ OUTPUT: graphical... plots!
+
 
 
