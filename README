@@ -1,0 +1,53 @@
+fvplay: Feature Vector Play
+
+This set of MATLAB scripts is intended for visualizing and preparing raw data 
+for use with an SVM classifier.  As is commonly known, the features that are used 
+in the classifier are more important than the method itself, thus these tools 
+provide an easy way to visualize and interpret data for best feature creation.  
+Data is expected to be an n x m matrix of doubles with two classes.
+Package includes:
+			fvprep
+			fvplay
+			fvplot
+
+
+%fvprep: Prepares data objects for use with rest of package. %%%%%%%%%%
+
+USAGE: fvprep(rawdata,labels)
+INPUT: rawdata: an n x m matrix of doubles, with n objects / subjects 
+		each with m features
+       labels: a single column vector of size n x 1 with limited to values of
+	-1 and 1 to distinguish the two classes
+OUTPUT: fv.features_vectorsraw data
+	fv.index1 - indices in inputdata for label 1 (1)
+	fv.index2 - indices in inputdata for label 2 (-1)
+        fv.m      - all means of features (columns)
+        fv.u1, fv.s1, fv.v1: svd output for group 1
+	fv.u2, fv.s2, fv.v2: svd output for group 2
+
+
+% fvplay takes as input an fv data object prepared by fvprep, and %%%
+ allows the user to select a transform to plot (to explore the data)
+ fvplot returns the data, and also displays plot in figures 1 and 2
+
+ USAGE: fvplot(fvobject,type)
+ INPUT: fvobject: data object prepared by fvprep
+	 type: options include:
+			quad: quadratic transformation
+			exp: exponential transformation
+			sig: sigmoid transformation
+			log: logarithmic transformation
+ OUTPUT: data: transformed n x m data matrix with n subjects (rows)
+		and m features (columns)
+
+
+% fvplot takes as input the output of fvplay (an n x m matrix with n %% objects / subjects (rows) and m features (columns) and plots a mean
+% subtracted histogram and heat map.
+%
+% USAGE: fvplot(fvobject,type)
+% INPUT: transform: transformed n x m data matrix, with n objects and m features
+%         fv: fv data object
+% OUTPUT: graphical... plots!
+%
+
+
