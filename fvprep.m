@@ -15,15 +15,15 @@ function fv = fvprep(inputdata,labels)
 % PREPARING DATA %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Prepare indices
-fprintf('%s\n','Preparing data... group 1 = 1, group 2 = -1);
-fv.features_vectors = inputdata
+fprintf('%s\n','Preparing data... group 1 = 1, group 2 = -1');
+fv.features_vectors = inputdata;
 fv.index1 = find(labels==1);
 fv.index2 = find(labels==-1);
 
 % Perform svd
 fprintf('%s\n','Performing singular value decomposition (svd)...');
-[fv.u1 fv.s1 fv.v1] = svd(inputdata(fv.index1);
-[fv.u2 fv.s2 fv.v2] = svd(inputdata(fv.index2);
+[fv.u1 fv.s1 fv.v1] = svd(inputdata(fv.index1,:));
+[fv.u2 fv.s2 fv.v2] = svd(inputdata(fv.index2,:));
 
 % Prepare mean vector
 fv.m = mean(inputdata);

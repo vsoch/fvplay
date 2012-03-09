@@ -22,34 +22,34 @@ subplot(2,2,1);
 hist(x, bins);
 title([ 'Group 1 '] );
 subplot(2,2,2);
-imagesc(data(fv.index1,:));
+imagesc(transform(fv.index1,:));
 colormap(hot);
 
 figure(1);
 subplot(2,2,3);
-xc = data(fv.index2,:)*fv.m';
-xcdat = data(fv.index2,:);
+xc = transform(fv.index2,:)*fv.m';
+xcdat = transform(fv.index2,:);
 hist(xc, bins);
 title([ 'Group 2 ']);
 subplot(2,2,4);
-imagesc(data(fv.index2,:));
+imagesc(transform(fv.index2,:));
 colormap(hot);
 
-pcPlotter(6);
+pcPlotter(6,fv);
 
 return
 end
 
 % Given a number i, plot the ith rank approximation and all the first i
 % principal components
-function pcPlotter(max_pc)
+function pcPlotter(max_pc,fv)
 %Step 1 : Take svds of you data
-u = fv.u;
-s = fv.s;
-v = fv.v;
-uc = fv.uc;
-sc = fv.sc;
-vc = fv.vc;
+u = fv.u1;
+s = fv.s1;
+v = fv.v1;
+uc = fv.u2;
+sc = fv.s2;
+vc = fv.v2;
 
 figure(3);
 subplot(2, max_pc+1, 1);
@@ -64,7 +64,7 @@ group2_nrank_approx = uc * scred * vc';
 imagesc(group2_nrank_approx);
 colormap(hot);
 
-for i = 1 : max_pc,
+for i = 1 : max_pc
 %Group1 (i'th principal component)
 sred = s .* 0; sred(i,i) = s(i,i); 
 group1_pc_i = u * sred * v'; 
@@ -79,6 +79,4 @@ subplot(2, max_pc+1, max_pc+1+i+1);
 imagesc(group2_pc_i);
 colormap(hot);
 end;
-end
-
 end

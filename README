@@ -50,4 +50,11 @@ OUTPUT: fv.features_vectorsraw data
  OUTPUT: graphical... plots!
 
 
+% fvcorr takes as input a data matrix and associated labels (in format -1 and 1)
+ and calculates the cross correlation matrix.
+ USAGE: fvcorr(data, labels)
+ INPUT: 
+	 data: a n x M matrix with n subjects, m columns of features
+    labels: a n X 1 column of labels, -1 and 1
+ OUTPUT: ccdata: cross correlation matrix
 
