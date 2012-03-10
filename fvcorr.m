@@ -3,14 +3,14 @@
 % USAGE: fvcorr(data, labels)
 % INPUT: 
 %	 data: a n x M matrix with n subjects, m columns of features
-%    labels: a n X 1 column of labels, -1 and 1
+%    labels: a n X 1 column of labels, 0 and 1
 % OUTPUT: ccdata: cross correlation matrix
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function corr_matrix = fvcorr(alldata,labels) 
     % Separate groups
     tot_size = size(alldata,1);
     adhd = alldata(labels == 1,:);
-    ctrl = alldata(labels == -1,:);
+    ctrl = alldata(labels == 0,:);
     
     % Calculate means and total size
     means = mean(alldata);

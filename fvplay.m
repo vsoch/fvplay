@@ -1,7 +1,7 @@
 function data = fvplay(fv,type)
 % fvplay takes as input an fv data object prepared by fvprep, and
 % allows the user to select a transform to plot (to explore the data)
-% Returns the data, and uses fvplot to display plot in figures 1 and 2
+% Returns the data, and next use fvplot to display plot in figures 1 and 2
 %
 % USAGE: fvplot(fvobject,type)
 % INPUT: fv: the fv data object prepared by fvprep
@@ -71,9 +71,5 @@ for i=1:size(fv.features_vectors,1)
         data(i,j) = smf(fv.features_vectors(i,j) - fv.m(i),[0 1]);
     end
 end
-
-% Plot results and return data
-fvplot(data,fv.index1,fv.index2)
-return
-
+end
 end
